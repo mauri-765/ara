@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1">
+
+    <title>Nuestro universo</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+
+    <style>
+
+                /* =====================================================
+           UNIVERSO
+        ===================================================== */
+
+                .universe {
+                    min-height: 76svh;
+                    position: relative;
+                    display: grid;
+                    place-items: center;
+                    margin-top: 20px;
+                }
+
+
+                /* =====================================================
+           ORBITA
+        ===================================================== */
+
+                .orbit {
+                    width: min(500px,76vw);
+                    aspect-ratio: 1;
+                    border: 1px solid rgba(255,255,255,.18);
+                    border-radius: 50%;
+                    position: relative;
+                    animation: spin 28s linear infinite;
+                }
+
+
+                    /* ORBITA INTERIOR */
+
+                    .orbit:before {
+                        content: "";
+                        position: absolute;
+                        inset: 18%;
+                        border: 1px solid rgba(255,255,255,.13);
+                        border-radius: 50%;
+                    }
+
+
+                    /* OTRA ORBITA */
+
+                    .orbit:after {
+                        content: "";
+                        position: absolute;
+                        inset: 34%;
+                        border: 1px solid rgba(216,167,200,.18);
+                        border-radius: 50%;
+                    }
+
+
+                /* =====================================================
+           ESTRELLAS
+        ===================================================== */
+
+                .star {
+                    position: absolute;
+                    width: 17px;
+                    height: 17px;
+                    border-radius: 50%;
+                    background: #fff;
+                    box-shadow: 0 0 18px 5px rgba(255,255,255,.55), 0 0 35px 8px rgba(216,167,200,.25);
+                    z-index: 4;
+                }
+
+                .s1 {
+                    top: -8px;
+                    left: 50%;
+                }
+
+                .s2 {
+                    bottom: 15%;
+                    right: -8px;
+                }
+
+                .s3 {
+                    bottom: -8px;
+                    left: 30%;
+                }
+
+
+                /* ESTRELLAS INTERIORES */
+
+                .orbit-star {
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: white;
+                    box-shadow: 0 0 15px 4px rgba(255,255,255,.7);
+                    z-index: 4;
+                }
+
+                .os1 {
+                    top: 50%;
+                    left: -5px;
+                }
+
+                .os2 {
+                    top: 50%;
+                    right: -5px;
+                }
+
+                .os3 {
+                    bottom: -5px;
+                    left: 50%;
+                }
+
+
+                /* =====================================================
+           CENTRO
+        ===================================================== */
+
+                .core {
+                    position: absolute;
+                    inset: 0;
+                    display: grid;
+                    place-items: center;
+                    text-align: center;
+                    z-index: 10;
+                    pointer-events: none;
+                }
+
+                    .core div {
+                        width: min(280px,55vw);
+                    }
+
+                    .core strong {
+                        display: block;
+                        font-size: 2.1rem;
+                        color: #f5d35c;
+                        margin-bottom: 14px;
+                        text-shadow: 0 0 15px rgba(245,211,92,.25);
+                    }
+
+                    .core p {
+                        font-size: .9rem;
+                        line-height: 1.7;
+                    }
+
+
+                /* =====================================================
+           FLORES DECORATIVAS
+        ===================================================== */
+
+                .universe-flower {
+                    position: absolute;
+                    width: 90px;
+                    height: 120px;
+                    border: 0;
+                    padding: 0;
+                    background: transparent;
+                    z-index: 25;
+                    pointer-events: none;
+                }
+
+
+                /* -----------------------------------------------------
+           CABEZA DE LA FLOR
+        ----------------------------------------------------- */
+
+                .uf-head {
+                    position: absolute;
+                    width: 58px;
+                    height: 58px;
+                    left: 16px;
+                    top: 0;
+                }
+
+
+                /* -----------------------------------------------------
+           PETALOS
+        ----------------------------------------------------- */
+
+                .uf-petal {
+                    position: absolute;
+                    width: 22px;
+                    height: 34px;
+                    left: 18px;
+                    top: 12px;
+                    border-radius: 50% 50% 45% 45%;
+                    background: radial-gradient( circle at 50% 75%, #fff4ae, #f5d35c 60%, #dfa92c );
+                    transform-origin: 11px 17px;
+                    box-shadow: 0 0 8px rgba(245,211,92,.25);
+                }
+
+
+                /* 8 PETALOS */
+
+                .uf-p1 {
+                    transform: rotate(0deg) translateY(-16px);
+                }
+
+                .uf-p2 {
+                    transform: rotate(45deg) translateY(-16px);
+                }
+
+                .uf-p3 {
+                    transform: rotate(90deg) translateY(-16px);
+                }
+
+                .uf-p4 {
+                    transform: rotate(135deg) translateY(-16px);
+                }
+
+                .uf-p5 {
+                    transform: rotate(180deg) translateY(-16px);
+                }
+
+                .uf-p6 {
+                    transform: rotate(225deg) translateY(-16px);
+                }
+
+                .uf-p7 {
+                    transform: rotate(270deg) translateY(-16px);
+                }
+
+                .uf-p8 {
+                    transform: rotate(315deg) translateY(-16px);
+                }
+
+
+                /* -----------------------------------------------------
+           CENTRO DE LA FLOR
+        ----------------------------------------------------- */
+
+                .uf-center {
+                    position: absolute;
+                    width: 23px;
+                    height: 23px;
+                    left: 17.5px;
+                    top: 17.5px;
+                    border-radius: 50%;
+                    background: radial-gradient( circle at 35% 30%, #d99b20, #70450b );
+                    z-index: 10;
+                    box-shadow: inset 0 0 6px rgba(0,0,0,.45), 0 0 12px rgba(245,211,92,.25);
+                }
+
+
+                /* -----------------------------------------------------
+           TALLO
+        ----------------------------------------------------- */
+
+                .uf-stem {
+                    position: absolute;
+                    width: 4px;
+                    height: 62px;
+                    left: 43px;
+                    top: 45px;
+                    border-radius: 10px;
+                    background: linear-gradient( to bottom, #7c9b52, #49683b );
+                    transform: rotate(7deg);
+                }
+
+
+                /* -----------------------------------------------------
+           HOJAS
+        ----------------------------------------------------- */
+
+                .uf-leaf {
+                    position: absolute;
+                    width: 29px;
+                    height: 14px;
+                    border-radius: 100% 0 100% 0;
+                    background: linear-gradient( 135deg, #91ad60, #4d713c );
+                    z-index: 3;
+                }
+
+                    .uf-leaf.l1 {
+                        left: 17px;
+                        top: 70px;
+                        transform: rotate(-28deg);
+                    }
+
+                    .uf-leaf.l2 {
+                        left: 40px;
+                        top: 84px;
+                        transform: rotate(28deg) scaleX(-1);
+                    }
+
+
+                /* =====================================================
+           POSICIONES DE LAS 6 FLORES
+        ===================================================== */
+
+
+                /* 1 — SUPERIOR IZQUIERDA */
+
+                .flower-1 {
+                    top: 7%;
+                    left: 3%;
+                    transform: rotate(-12deg) scale(.82);
+                }
+
+
+                /* 2 — SUPERIOR DERECHA
+           ESTA ES EL EASTER EGG */
+
+                .flower-2 {
+                    top: 4%;
+                    right: 3%;
+                    transform: rotate(10deg);
+                }
+
+
+                /* 3 — IZQUIERDA */
+
+                .flower-3 {
+                    top: 42%;
+                    left: -1%;
+                    transform: rotate(-18deg) scale(.85);
+                }
+
+
+                /* 4 — DERECHA */
+
+                .flower-4 {
+                    top: 42%;
+                    right: -1%;
+                    transform: rotate(15deg) scale(.85);
+                }
+
+
+                /* 5 — INFERIOR IZQUIERDA */
+
+                .flower-5 {
+                    bottom: 3%;
+                    left: 10%;
+                    transform: rotate(-20deg) scale(.75);
+                }
+
+
+                /* 6 — INFERIOR DERECHA */
+
+                .flower-6 {
+                    bottom: 3%;
+                    right: 10%;
+                    transform: rotate(18deg) scale(.75);
+                }
+
+
+                /* =====================================================
+           ANIMACION SUAVE DE LAS FLORES
+        ===================================================== */
+
+                .decorative-flower {
+                    animation: flowerSway 5s ease-in-out infinite;
+                }
+
+                .flower-1 {
+                    animation-delay: .2s;
+                }
+
+                .flower-2 {
+                    animation-delay: 1s;
+                }
+
+                .flower-3 {
+                    animation-delay: 1.7s;
+                }
+
+                .flower-4 {
+                    animation-delay: 2.4s;
+                }
+
+                .flower-5 {
+                    animation-delay: 3s;
+                }
+
+                .flower-6 {
+                    animation-delay: 3.7s;
+                }
+
+
+                @keyframes flowerSway {
+
+                    0%,100% {
+                        margin-top: 0;
+                    }
+
+                    50% {
+                        margin-top: -7px;
+                    }
+                }
+
+
+                /* =====================================================
+           EASTER EGG
+        ===================================================== */
+
+                .egg-flower {
+                    pointer-events: auto;
+                    cursor: pointer;
+                    transition: .4s;
+                }
+
+
+                    /* BRILLO */
+
+                    .egg-flower::after {
+                        content: "";
+                        position: absolute;
+                        width: 100px;
+                        height: 100px;
+                        left: -5px;
+                        top: -18px;
+                        border-radius: 50%;
+                        background: radial-gradient( circle, rgba(245,211,92,.18), transparent 68% );
+                        opacity: .35;
+                        transition: .5s;
+                        pointer-events: none;
+                    }
+
+
+                    /* HOVER */
+
+                    .egg-flower:hover {
+                        transform: rotate(10deg) scale(1.12);
+                    }
+
+                        .egg-flower:hover::after {
+                            opacity: 1;
+                            transform: scale(1.35);
+                        }
+
+
+                    /* BRILLO DE PETALOS DEL EGG */
+
+                    .egg-flower .uf-petal {
+                        box-shadow: 0 0 10px rgba(245,211,92,.4), 0 0 20px rgba(245,211,92,.15);
+                    }
+
+
+                /* =====================================================
+           MODAL EASTER EGG
+        ===================================================== */
+
+                .egg-modal {
+                    position: fixed;
+                    inset: 0;
+                    z-index: 200;
+                    display: none;
+                    place-items: center;
+                    padding: 20px;
+                    background: rgba(2,7,15,.92);
+                    backdrop-filter: blur(15px);
+                }
+
+                    .egg-modal.show {
+                        display: grid;
+                        animation: eggAppear .5s ease;
+                    }
+
+
+                @keyframes eggAppear {
+
+                    from {
+                        opacity: 0;
+                    }
+
+                    to {
+                        opacity: 1;
+                    }
+                }
+
+
+                /* =====================================================
+           CONTENIDO DEL MODAL
+        ===================================================== */
+
+                .egg-content {
+                    width: min(900px,95vw);
+                    max-height: 90vh;
+                    overflow: auto;
+                    padding: 30px;
+                    border-radius: 28px;
+                    border: 1px solid rgba(245,211,92,.35);
+                    background: radial-gradient( circle at 50% 0%, rgba(245,211,92,.12), transparent 45% ), rgba(8,17,31,.96);
+                    box-shadow: 0 30px 100px rgba(0,0,0,.65), 0 0 60px rgba(245,211,92,.08);
+                }
+
+
+                /* TITULO */
+
+                .egg-title {
+                    text-align: center;
+                    margin-bottom: 25px;
+                }
+
+                    .egg-title .eyebrow {
+                        color: #f5d35c;
+                    }
+
+                    .egg-title h3 {
+                        font-size: clamp(1.7rem,5vw,2.8rem);
+                        margin-bottom: 8px;
+                    }
+
+                    .egg-title p {
+                        font-size: .9rem;
+                    }
+
+
+                /* =====================================================
+           GALERIA DE VIDEOS
+        ===================================================== */
+
+                .egg-gallery {
+                    display: grid;
+                    grid-template-columns: repeat(2,1fr);
+                    gap: 16px;
+                }
+
+                .egg-video {
+                    overflow: hidden;
+                    border-radius: 18px;
+                    border: 1px solid rgba(255,255,255,.14);
+                    background: #02050b;
+                    box-shadow: 0 10px 35px rgba(0,0,0,.35);
+                }
+
+                    .egg-video video {
+                        width: 100%;
+                        aspect-ratio: 16/9;
+                        display: block;
+                        object-fit: cover;
+                        background: #000;
+                    }
+
+
+                /* =====================================================
+           BOTON CERRAR
+        ===================================================== */
+
+                .egg-close {
+                    display: block;
+                    margin: 25px auto 0;
+                    padding: 11px 22px;
+                    border-radius: 999px;
+                    border: 1px solid rgba(245,211,92,.4);
+                    background: transparent;
+                    color: var(--text);
+                    cursor: pointer;
+                    font-weight: 700;
+                    transition: .3s;
+                }
+
+                    .egg-close:hover {
+                        background: rgba(245,211,92,.1);
+                        transform: translateY(-2px);
+                    }
+
+
+                /* =====================================================
+           ORBITA
+        ===================================================== */
+
+                @keyframes spin {
+
+                    from {
+                        transform: rotate(0deg);
+                    }
+
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+
+
+                /* =====================================================
+           RESPONSIVE CELULAR
+        ===================================================== */
+
+                @media(max-width:700px) {
+
+                    .universe {
+                        min-height: 70svh;
+                        margin-top: 35px;
+                    }
+
+
+                    .orbit {
+                        width: 70vw;
+                    }
+
+
+                    .core div {
+                        width: 47vw;
+                    }
+
+
+                    .core strong {
+                        font-size: 1.45rem;
+                    }
+
+
+                    .core p {
+                        font-size: .72rem;
+                        line-height: 1.55;
+                    }
+
+
+                    /* FLORES */
+
+                    .flower-1 {
+                        top: 7%;
+                        left: -4%;
+                        transform: scale(.6) rotate(-12deg);
+                    }
+
+
+                    .flower-2 {
+                        top: 5%;
+                        right: -5%;
+                        transform: scale(.7) rotate(10deg);
+                    }
+
+
+                    .flower-3 {
+                        top: 39%;
+                        left: -7%;
+                        transform: scale(.6) rotate(-18deg);
+                    }
+
+
+                    .flower-4 {
+                        top: 39%;
+                        right: -7%;
+                        transform: scale(.6) rotate(15deg);
+                    }
+
+
+                    .flower-5 {
+                        bottom: 4%;
+                        left: 2%;
+                        transform: scale(.55) rotate(-20deg);
+                    }
+
+
+                    .flower-6 {
+                        bottom: 4%;
+                        right: 2%;
+                        transform: scale(.55) rotate(18deg);
+                    }
+
+
+                    /* MODAL */
+
+                    .egg-content {
+                        padding: 20px;
+                        border-radius: 22px;
+                    }
+
+
+                    .egg-gallery {
+                        grid-template-columns: 1fr;
+                        gap: 14px;
+                    }
+                }
+
+
+                /* CELULARES MUY PEQUEÑOS */
+
+                @media(max-width:400px) {
+
+                    .orbit {
+                        width: 68vw;
+                    }
+
+                    .core div {
+                        width: 44vw;
+                    }
+
+                    .core strong {
+                        font-size: 1.25rem;
+                    }
+
+                    .core p {
+                        font-size: .65rem;
+                    }
+                }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAV
+    ===================================================== -->
+
+    <nav class="nav">
+
+        <a class="brand"
+           href="index.html">
+            21 • 09
+        </a>
+
+
+        <div class="navlinks">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="historia.html">
+                Historia
+            </a>
+
+            <a href="galeria.html">
+                Fotos
+            </a>
+
+            <a href="carta.html">
+                Carta
+            </a>
+
+            <a class="active"
+               href="universo.html">
+                Universo
+            </a>
+
+            <a href="recuerdos.html">
+                Recuerdos
+            </a>
+
+            <a href="primavera.html">
+                Primavera
+            </a>
+
+            <a href="final.html">
+                Regalo
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         CONTENIDO
+    ===================================================== -->
+
+    <section>
+
+        <div class="container center">
+
+
+            <div class="eyebrow">
+                Capítulo IV
+            </div>
+
+
+            <h2>
+                Nuestro universo
+            </h2>
+
+
+            <p>
+                Dos puntos, miles de momentos y una historia que sigue avanzando.
+            </p>
+
+
+
+            <!-- =================================================
+                 UNIVERSO
+            ================================================== -->
+
+            <div class="universe">
+
+
+                <!-- =================================================
+                     FLOR 1
+                ================================================== -->
+
+                <div class="universe-flower decorative-flower flower-1">
+
+                    <div class="uf-head">
+
+                        <span class="uf-petal uf-p1"></span>
+                        <span class="uf-petal uf-p2"></span>
+                        <span class="uf-petal uf-p3"></span>
+                        <span class="uf-petal uf-p4"></span>
+                        <span class="uf-petal uf-p5"></span>
+                        <span class="uf-petal uf-p6"></span>
+                        <span class="uf-petal uf-p7"></span>
+                        <span class="uf-petal uf-p8"></span>
+
+                        <span class="uf-center"></span>
+
+                    </div>
+
+                    <span class="uf-stem"></span>
+
+                    <span class="uf-leaf l1"></span>
+                    <span class="uf-leaf l2"></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FLOR 2 — EASTER EGG
+                ================================================== -->
+
+                <button class="universe-flower decorative-flower egg-flower flower-2"
+                        id="universeEgg"
+                        aria-label="Una flor especial"
+                        title="Una flor especial">
+
+                    <div class="uf-head">
+
+                        <span class="uf-petal uf-p1"></span>
+                        <span class="uf-petal uf-p2"></span>
+                        <span class="uf-petal uf-p3"></span>
+                        <span class="uf-petal uf-p4"></span>
+                        <span class="uf-petal uf-p5"></span>
+                        <span class="uf-petal uf-p6"></span>
+                        <span class="uf-petal uf-p7"></span>
+                        <span class="uf-petal uf-p8"></span>
+
+                        <span class="uf-center"></span>
+
+                    </div>
+
+                    <span class="uf-stem"></span>
+
+                    <span class="uf-leaf l1"></span>
+                    <span class="uf-leaf l2"></span>
+
+                </button>
+
+
+
+                <!-- =================================================
+                     FLOR 3
+                ================================================== -->
+
+                <div class="universe-flower decorative-flower flower-3">
+
+                    <div class="uf-head">
+
+                        <span class="uf-petal uf-p1"></span>
+                        <span class="uf-petal uf-p2"></span>
+                        <span class="uf-petal uf-p3"></span>
+                        <span class="uf-petal uf-p4"></span>
+                        <span class="uf-petal uf-p5"></span>
+                        <span class="uf-petal uf-p6"></span>
+                        <span class="uf-petal uf-p7"></span>
+                        <span class="uf-petal uf-p8"></span>
+
+                        <span class="uf-center"></span>
+
+                    </div>
+
+                    <span class="uf-stem"></span>
+
+                    <span class="uf-leaf l1"></span>
+                    <span class="uf-leaf l2"></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FLOR 4
+                ================================================== -->
+
+                <div class="universe-flower decorative-flower flower-4">
+
+                    <div class="uf-head">
+
+                        <span class="uf-petal uf-p1"></span>
+                        <span class="uf-petal uf-p2"></span>
+                        <span class="uf-petal uf-p3"></span>
+                        <span class="uf-petal uf-p4"></span>
+                        <span class="uf-petal uf-p5"></span>
+                        <span class="uf-petal uf-p6"></span>
+                        <span class="uf-petal uf-p7"></span>
+                        <span class="uf-petal uf-p8"></span>
+
+                        <span class="uf-center"></span>
+
+                    </div>
+
+                    <span class="uf-stem"></span>
+
+                    <span class="uf-leaf l1"></span>
+                    <span class="uf-leaf l2"></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FLOR 5
+                ================================================== -->
+
+                <div class="universe-flower decorative-flower flower-5">
+
+                    <div class="uf-head">
+
+                        <span class="uf-petal uf-p1"></span>
+                        <span class="uf-petal uf-p2"></span>
+                        <span class="uf-petal uf-p3"></span>
+                        <span class="uf-petal uf-p4"></span>
+                        <span class="uf-petal uf-p5"></span>
+                        <span class="uf-petal uf-p6"></span>
+                        <span class="uf-petal uf-p7"></span>
+                        <span class="uf-petal uf-p8"></span>
+
+                        <span class="uf-center"></span>
+
+                    </div>
+
+                    <span class="uf-stem"></span>
+
+                    <span class="uf-leaf l1"></span>
+                    <span class="uf-leaf l2"></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FLOR 6
+                ================================================== -->
+
+                <div class="universe-flower decorative-flower flower-6">
+
+                    <div class="uf-head">
+
+                        <span class="uf-petal uf-p1"></span>
+                        <span class="uf-petal uf-p2"></span>
+                        <span class="uf-petal uf-p3"></span>
+                        <span class="uf-petal uf-p4"></span>
+                        <span class="uf-petal uf-p5"></span>
+                        <span class="uf-petal uf-p6"></span>
+                        <span class="uf-petal uf-p7"></span>
+                        <span class="uf-petal uf-p8"></span>
+
+                        <span class="uf-center"></span>
+
+                    </div>
+
+                    <span class="uf-stem"></span>
+
+                    <span class="uf-leaf l1"></span>
+                    <span class="uf-leaf l2"></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ORBITA
+                ================================================== -->
+
+                <div class="orbit">
+
+
+                    <i class="star s1"></i>
+
+                    <i class="star s2"></i>
+
+                    <i class="star s3"></i>
+
+
+                    <i class="orbit-star os1"></i>
+
+                    <i class="orbit-star os2"></i>
+
+                    <i class="orbit-star os3"></i>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CENTRO
+                ================================================== -->
+
+                <div class="core">
+
+                    <div>
+
+                        <strong>
+                            ✦ Nosotros ✦
+                        </strong>
+
+                        <p>
+                            Dos personas que se amaron con locura,
+                            pero no pudieron seguir juntas hasta el final
+                            de sus días.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SIGUIENTE
+    ===================================================== -->
+
+    <footer>
+
+        <a class="btn"
+           href="recuerdos.html">
+            Seguir →
+        </a>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         EASTER EGG — 4 VIDEOS
+    ===================================================== -->
+
+    <div class="egg-modal"
+         id="eggModal">
+
+
+        <div class="egg-content">
+
+
+            <div class="egg-title">
+
+                <div class="eyebrow">
+                    Una pequeña sorpresa
+                </div>
+
+                <h3>
+                    Lo que quedó entre las estrellas
+                </h3>
+
+                <p>
+                    Hay recuerdos que merecen tener
+                    su propio lugar dentro de nuestro universo.
+                </p>
+
+            </div>
+
+
+
+            <!-- VIDEO 1 -->
+
+            <div class="egg-gallery">
+
+
+                <div class="egg-video">
+
+                    <video src="images/egg01.mp4"
+                           controls
+                           playsinline
+                           preload="metadata"></video>
+
+                </div>
+
+
+
+                <!-- VIDEO 2 -->
+
+                <div class="egg-video">
+
+                    <video src="images/egg02.mp4"
+                           controls
+                           playsinline
+                           preload="metadata"></video>
+
+                </div>
+
+
+
+                <!-- VIDEO 3 -->
+
+                <div class="egg-video">
+
+                    <video src="images/egg03.mp4"
+                           controls
+                           playsinline
+                           preload="metadata"></video>
+
+                </div>
+
+
+
+                <!-- VIDEO 4 -->
+
+                <div class="egg-video">
+
+                    <video src="images/egg04.mp4"
+                           controls
+                           playsinline
+                           preload="metadata"></video>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- CERRAR -->
+
+            <button class="egg-close"
+                    id="eggClose">
+                Cerrar sorpresa
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SCRIPT GENERAL
+    ===================================================== -->
+
+    <script src="js/script.js"></script>
+
+
+
+    <!-- =====================================================
+         SCRIPT EASTER EGG
+    ===================================================== -->
+
+    <script>
+
+        const universeEgg =
+            document.querySelector("#universeEgg");
+
+        const eggModal =
+            document.querySelector("#eggModal");
+
+        const eggClose =
+            document.querySelector("#eggClose");
+
+
+        /* ==========================================
+           ABRIR EASTER EGG
+        ========================================== */
+
+        if (universeEgg && eggModal) {
+
+            universeEgg.addEventListener("click", () => {
+
+                eggModal.classList.add("show");
+
+            });
+
+        }
+
+
+        /* ==========================================
+           CERRAR CON BOTON
+        ========================================== */
+
+        if (eggClose && eggModal) {
+
+            eggClose.addEventListener("click", () => {
+
+                eggModal.classList.remove("show");
+
+                detenerVideos();
+
+            });
+
+        }
+
+
+        /* ==========================================
+           CERRAR HACIENDO CLICK FUERA
+        ========================================== */
+
+        if (eggModal) {
+
+            eggModal.addEventListener("click", (e) => {
+
+                if (e.target === eggModal) {
+
+                    eggModal.classList.remove("show");
+
+                    detenerVideos();
+
+                }
+
+            });
+
+        }
+
+
+        /* ==========================================
+           CERRAR CON ESC
+        ========================================== */
+
+        document.addEventListener("keydown", (e) => {
+
+            if (
+                e.key === "Escape" &&
+                eggModal
+            ) {
+
+                eggModal.classList.remove("show");
+
+                detenerVideos();
+
+            }
+
+        });
+
+
+        /* ==========================================
+           DETENER VIDEOS
+        ========================================== */
+
+        function detenerVideos() {
+
+            document
+                .querySelectorAll(".egg-video video")
+                .forEach(video => {
+
+                    video.pause();
+
+                    video.currentTime = 0;
+
+                });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1417 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1">
+
+    <title>Tu regalo</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+
+    <style>
+
+                /* =========================================================
+           FINAL — EXPERIENCIA DE CIERRE
+        ========================================================= */
+
+                .final-page {
+                    position: relative;
+                    min-height: 100svh;
+                    overflow: hidden;
+                    background: radial-gradient( circle at 50% 42%, rgba(245,211,92,.12), transparent 25% ), radial-gradient( circle at 15% 80%, rgba(145,184,216,.12), transparent 30% ), radial-gradient( circle at 85% 20%, rgba(216,167,200,.10), transparent 30% );
+                }
+
+
+                    /* =========================================================
+           CAPA DE PROFUNDIDAD
+        ========================================================= */
+
+                    .final-page::before {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        pointer-events: none;
+                        background: radial-gradient( circle at center, transparent 0%, rgba(0,0,0,.12) 55%, rgba(0,0,0,.45) 100% );
+                        z-index: 1;
+                    }
+
+
+                /* =========================================================
+           LUZ CENTRAL
+        ========================================================= */
+
+                .final-light {
+                    position: absolute;
+                    width: 650px;
+                    height: 650px;
+                    left: 50%;
+                    top: 48%;
+                    transform: translate(-50%,-50%);
+                    border-radius: 50%;
+                    background: radial-gradient( circle, rgba(255,220,100,.13), rgba(255,220,100,.04) 35%, transparent 70% );
+                    filter: blur(5px);
+                    pointer-events: none;
+                    animation: finalLight 5s ease-in-out infinite;
+                    z-index: 2;
+                }
+
+
+                @keyframes finalLight {
+
+                    0%,100% {
+                        transform: translate(-50%,-50%) scale(1);
+                        opacity: .65;
+                    }
+
+                    50% {
+                        transform: translate(-50%,-50%) scale(1.16);
+                        opacity: 1;
+                    }
+                }
+
+
+                /* =========================================================
+           CONTENIDO
+        ========================================================= */
+
+                .final-content {
+                    position: relative;
+                    z-index: 20;
+                    text-align: center;
+                    padding: 150px 20px 100px;
+                    max-width: 900px;
+                    margin: auto;
+                }
+
+
+                    .final-content h2 {
+                        margin-bottom: 12px;
+                        font-size: clamp(2.4rem,8vw,5rem);
+                        text-shadow: 0 0 30px rgba(245,211,92,.10);
+                    }
+
+
+                .final-subtitle {
+                    max-width: 600px;
+                    margin: 0 auto 45px;
+                    font-size: .98rem;
+                }
+
+
+                /* =========================================================
+           ETIQUETA
+        ========================================================= */
+
+                .final-label {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 8px 17px;
+                    margin-bottom: 20px;
+                    border-radius: 999px;
+                    border: 1px solid rgba(245,211,92,.25);
+                    background: rgba(245,211,92,.05);
+                    color: #f5d35c;
+                    font-size: .72rem;
+                    letter-spacing: .18em;
+                    text-transform: uppercase;
+                }
+
+
+                    .final-label::before,
+                    .final-label::after {
+                        content: "✦";
+                        font-size: .55rem;
+                        opacity: .7;
+                    }
+
+
+                /* =========================================================
+           ESCENA DEL REGALO
+        ========================================================= */
+
+                .gift-scene {
+                    position: relative;
+                    width: 330px;
+                    height: 330px;
+                    margin: 0 auto 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+
+                /* =========================================================
+           AURA
+        ========================================================= */
+
+                .gift-aura {
+                    position: absolute;
+                    width: 280px;
+                    height: 280px;
+                    border-radius: 50%;
+                    background: radial-gradient( circle, rgba(245,211,92,.15), transparent 68% );
+                    animation: auraPulse 4s ease-in-out infinite;
+                }
+
+
+                @keyframes auraPulse {
+
+                    0%,100% {
+                        transform: scale(.9);
+                        opacity: .5;
+                    }
+
+                    50% {
+                        transform: scale(1.12);
+                        opacity: 1;
+                    }
+                }
+
+
+                /* =========================================================
+           ANILLOS MAGICOS
+        ========================================================= */
+
+                .gift-ring {
+                    position: absolute;
+                    border: 1px solid rgba(245,211,92,.15);
+                    border-radius: 50%;
+                    pointer-events: none;
+                }
+
+
+                .ring-1 {
+                    width: 270px;
+                    height: 270px;
+                    animation: ringRotate 18s linear infinite;
+                }
+
+
+                .ring-2 {
+                    width: 215px;
+                    height: 215px;
+                    border-style: dashed;
+                    opacity: .35;
+                    animation: ringRotateReverse 24s linear infinite;
+                }
+
+
+                @keyframes ringRotate {
+
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+
+
+                @keyframes ringRotateReverse {
+
+                    to {
+                        transform: rotate(-360deg);
+                    }
+                }
+
+
+                /* =========================================================
+           CAJA
+        ========================================================= */
+
+                .final-gift {
+                    position: relative;
+                    width: 210px;
+                    height: 180px;
+                    cursor: pointer;
+                    z-index: 10;
+                    filter: drop-shadow( 0 25px 25px rgba(0,0,0,.35) );
+                    transition: transform .5s ease;
+                }
+
+
+                    .final-gift:hover {
+                        transform: translateY(-7px) scale(1.02);
+                    }
+
+
+                /* =========================================================
+           CUERPO
+        ========================================================= */
+
+                .final-gift-box {
+                    position: absolute;
+                    left: 18px;
+                    right: 18px;
+                    bottom: 0;
+                    height: 125px;
+                    border-radius: 0 0 18px 18px;
+                    background: linear-gradient( 90deg, #506b91 0%, #7895b7 28%, #617fa4 50%, #7895b7 72%, #506b91 100% );
+                    border: 1px solid rgba(255,255,255,.12);
+                    box-shadow: inset 12px 0 20px rgba(0,0,0,.12), inset -12px 0 20px rgba(0,0,0,.12);
+                }
+
+
+                /* =========================================================
+           FRANJA VERTICAL
+        ========================================================= */
+
+                .final-ribbon-v {
+                    position: absolute;
+                    width: 35px;
+                    top: 0;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: linear-gradient( 90deg, #e5c04e, #ffe995, #d8aa2d );
+                    box-shadow: 0 0 12px rgba(245,211,92,.18);
+                    z-index: 3;
+                }
+
+
+                /* =========================================================
+           FRANJA HORIZONTAL
+        ========================================================= */
+
+                .final-ribbon-h {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 45px;
+                    height: 32px;
+                    background: linear-gradient( 180deg, #d8aa2d, #ffe995, #d8aa2d );
+                    z-index: 4;
+                }
+
+
+                /* =========================================================
+           TAPA
+        ========================================================= */
+
+                .final-gift-lid {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 27px;
+                    height: 55px;
+                    border-radius: 15px;
+                    background: linear-gradient( 135deg, #8fa8c5, #667fa2, #8ba4c2 );
+                    border: 1px solid rgba(255,255,255,.16);
+                    z-index: 8;
+                    transform-origin: center bottom;
+                    transition: transform 1s cubic-bezier(.2,.8,.2,1), top 1s ease;
+                }
+
+
+                /* =========================================================
+           TAPA ABIERTA
+        ========================================================= */
+
+                .final-gift.open .final-gift-lid {
+                    transform: translateY(-115px) rotate(-7deg);
+                }
+
+
+                /* =========================================================
+           BRILLO DE LA CAJA
+        ========================================================= */
+
+                .gift-shine {
+                    position: absolute;
+                    left: 30px;
+                    right: 30px;
+                    top: 75px;
+                    height: 1px;
+                    background: linear-gradient( 90deg, transparent, rgba(255,255,255,.55), transparent );
+                    opacity: .5;
+                    z-index: 9;
+                }
+
+
+                /* =========================================================
+           MOÑO
+        ========================================================= */
+
+                .final-bow {
+                    position: absolute;
+                    left: 50%;
+                    top: 3px;
+                    transform: translateX(-50%);
+                    width: 75px;
+                    height: 50px;
+                    z-index: 15;
+                }
+
+
+                .final-bow-left,
+                .final-bow-right {
+                    position: absolute;
+                    width: 50px;
+                    height: 35px;
+                    top: 5px;
+                    background: linear-gradient( 135deg, #ffe68b, #d6a72e );
+                    border: 1px solid rgba(255,255,255,.12);
+                    box-shadow: 0 0 12px rgba(245,211,92,.18);
+                }
+
+
+                .final-bow-left {
+                    left: 0;
+                    border-radius: 80% 20% 70% 30%;
+                    transform: rotate(25deg);
+                }
+
+
+                .final-bow-right {
+                    right: 0;
+                    border-radius: 20% 80% 30% 70%;
+                    transform: rotate(-25deg);
+                }
+
+
+                .final-bow-center {
+                    position: absolute;
+                    width: 25px;
+                    height: 25px;
+                    left: 25px;
+                    top: 13px;
+                    border-radius: 50%;
+                    background: radial-gradient( circle at 35% 30%, #fff0a5, #d39f24 );
+                    z-index: 4;
+                }
+
+
+                /* =========================================================
+           CORAZON EN LA CAJA
+        ========================================================= */
+
+                .gift-heart {
+                    position: absolute;
+                    left: 50%;
+                    top: 96px;
+                    transform: translateX(-50%);
+                    font-size: 27px;
+                    color: #fff1a3;
+                    opacity: .8;
+                    z-index: 10;
+                    text-shadow: 0 0 15px rgba(255,220,100,.5);
+                    transition: opacity .5s;
+                }
+
+
+                .final-gift.open .gift-heart {
+                    opacity: 0;
+                }
+
+
+                /* =========================================================
+           MENSAJE OCULTO
+        ========================================================= */
+
+                .gift-message {
+                    display: none;
+                    position: relative;
+                    z-index: 30;
+                    max-width: 760px;
+                    margin: 20px auto 0;
+                    padding: 45px 35px;
+                    border: 1px solid rgba(245,211,92,.18);
+                    border-radius: 30px;
+                    background: linear-gradient( 145deg, rgba(255,255,255,.08), rgba(255,255,255,.035) );
+                    backdrop-filter: blur(18px);
+                    box-shadow: 0 30px 100px rgba(0,0,0,.35);
+                }
+
+
+                    .gift-message.show {
+                        display: block;
+                        animation: finalReveal 1.3s cubic-bezier(.2,.8,.2,1);
+                    }
+
+
+                @keyframes finalReveal {
+
+                    from {
+                        opacity: 0;
+                        transform: translateY(40px) scale(.96);
+                        filter: blur(8px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translateY(0) scale(1);
+                        filter: blur(0);
+                    }
+                }
+
+
+                /* =========================================================
+           CORAZON GRANDE
+        ========================================================= */
+
+                .final-heart {
+                    font-size: 3rem;
+                    color: #f5d35c;
+                    margin-bottom: 15px;
+                    text-shadow: 0 0 25px rgba(245,211,92,.4);
+                    animation: heartPulse 2.5s ease-in-out infinite;
+                }
+
+
+                @keyframes heartPulse {
+
+                    0%,100% {
+                        transform: scale(1);
+                    }
+
+                    50% {
+                        transform: scale(1.08);
+                    }
+                }
+
+
+                /* =========================================================
+           TEXTO FINAL
+        ========================================================= */
+
+                .final-message-text {
+                    max-width: 650px;
+                    margin: 0 auto;
+                }
+
+
+                    .final-message-text p {
+                        margin-bottom: 20px;
+                        line-height: 1.9;
+                    }
+
+
+                .final-signature {
+                    margin-top: 30px;
+                    color: #f5d35c;
+                    letter-spacing: .12em;
+                    font-size: .85rem;
+                }
+
+
+                /* =========================================================
+           FOTO FINAL
+        ========================================================= */
+
+                .final-photo {
+                    margin-top: 35px;
+                    position: relative;
+                }
+
+
+                    .final-photo img {
+                        display: block;
+                        width: 100%;
+                        max-width: 700px;
+                        margin: auto;
+                        border-radius: 25px;
+                        border: 1px solid rgba(245,211,92,.2);
+                        box-shadow: 0 25px 70px rgba(0,0,0,.4);
+                        transition: transform .5s ease;
+                    }
+
+
+                        .final-photo img:hover {
+                            transform: scale(1.015);
+                        }
+
+
+                    .final-photo::before {
+                        content: "";
+                        position: absolute;
+                        inset: -8px;
+                        border-radius: 31px;
+                        border: 1px solid rgba(245,211,92,.08);
+                        pointer-events: none;
+                    }
+
+
+                /* =========================================================
+           FLORES DEL JARDIN
+        ========================================================= */
+
+                .final-flower {
+                    position: absolute;
+                    width: 90px;
+                    height: 145px;
+                    z-index: 7;
+                    pointer-events: none;
+                }
+
+
+                /* CABEZA */
+
+                .final-flower-head {
+                    position: absolute;
+                    width: 65px;
+                    height: 65px;
+                    left: 13px;
+                    top: 0;
+                }
+
+
+                /* PETALOS */
+
+                .final-petal {
+                    position: absolute;
+                    width: 23px;
+                    height: 35px;
+                    left: 21px;
+                    top: 15px;
+                    border-radius: 50% 50% 45% 45%;
+                    background: radial-gradient( circle at 50% 75%, #fff4aa, #f5d35c 60%, #dca92f );
+                    transform-origin: 11.5px 17.5px;
+                    box-shadow: 0 0 8px rgba(245,211,92,.18);
+                }
+
+
+                /* 8 PETALOS */
+
+                .fp01 {
+                    transform: rotate(0deg) translateY(-20px);
+                }
+
+                .fp02 {
+                    transform: rotate(45deg) translateY(-20px);
+                }
+
+                .fp03 {
+                    transform: rotate(90deg) translateY(-20px);
+                }
+
+                .fp04 {
+                    transform: rotate(135deg) translateY(-20px);
+                }
+
+                .fp05 {
+                    transform: rotate(180deg) translateY(-20px);
+                }
+
+                .fp06 {
+                    transform: rotate(225deg) translateY(-20px);
+                }
+
+                .fp07 {
+                    transform: rotate(270deg) translateY(-20px);
+                }
+
+                .fp08 {
+                    transform: rotate(315deg) translateY(-20px);
+                }
+
+
+                /* CENTRO */
+
+                .final-flower-center {
+                    position: absolute;
+                    width: 24px;
+                    height: 24px;
+                    left: 20.5px;
+                    top: 20.5px;
+                    border-radius: 50%;
+                    background: radial-gradient( circle at 35% 30%, #e1a52a, #71470b );
+                    z-index: 10;
+                    box-shadow: inset 0 0 5px rgba(0,0,0,.4), 0 0 8px rgba(245,211,92,.2);
+                }
+
+
+                /* TALLO */
+
+                .final-flower-stem {
+                    position: absolute;
+                    width: 4px;
+                    height: 85px;
+                    left: 45px;
+                    top: 53px;
+                    border-radius: 20px;
+                    background: linear-gradient( to right, #45653a, #88a65d, #45653a );
+                }
+
+
+                /* HOJAS */
+
+                .final-leaf {
+                    position: absolute;
+                    width: 35px;
+                    height: 15px;
+                    border-radius: 100% 0 100% 0;
+                    background: linear-gradient( 135deg, #91ad61, #496c3b );
+                }
+
+
+                    .final-leaf.left {
+                        left: 12px;
+                        top: 92px;
+                        transform: rotate(-25deg);
+                    }
+
+
+                    .final-leaf.right {
+                        left: 43px;
+                        top: 105px;
+                        transform: rotate(25deg) scaleX(-1);
+                    }
+
+
+                /* =========================================================
+           POSICIONES FLORES
+        ========================================================= */
+
+                .final-flower-1 {
+                    left: 2%;
+                    bottom: 20px;
+                    transform: rotate(-10deg) scale(1.15);
+                }
+
+
+                .final-flower-2 {
+                    left: 13%;
+                    bottom: -15px;
+                    transform: rotate(8deg) scale(.8);
+                }
+
+
+                .final-flower-3 {
+                    right: 2%;
+                    bottom: 20px;
+                    transform: rotate(10deg) scale(1.15);
+                }
+
+
+                .final-flower-4 {
+                    right: 13%;
+                    bottom: -15px;
+                    transform: rotate(-8deg) scale(.8);
+                }
+
+
+                /* =========================================================
+           PARTICULAS
+        ========================================================= */
+
+                .final-particle {
+                    position: absolute;
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 50%;
+                    background: #f5d35c;
+                    box-shadow: 0 0 10px rgba(245,211,92,.6);
+                    pointer-events: none;
+                    animation: particlePulse 3s ease-in-out infinite;
+                }
+
+
+                .particle-1 {
+                    left: 18%;
+                    top: 27%;
+                }
+
+                .particle-2 {
+                    left: 29%;
+                    top: 62%;
+                    animation-delay: 1s;
+                }
+
+                .particle-3 {
+                    right: 20%;
+                    top: 32%;
+                    animation-delay: 2s;
+                }
+
+                .particle-4 {
+                    right: 30%;
+                    top: 68%;
+                    animation-delay: .5s;
+                }
+
+                .particle-5 {
+                    left: 11%;
+                    top: 50%;
+                    animation-delay: 1.5s;
+                }
+
+                .particle-6 {
+                    right: 12%;
+                    top: 55%;
+                    animation-delay: 2.5s;
+                }
+
+
+                @keyframes particlePulse {
+
+                    0%,100% {
+                        opacity: .15;
+                        transform: scale(.6);
+                    }
+
+                    50% {
+                        opacity: .8;
+                        transform: scale(1.5);
+                    }
+                }
+
+
+                /* =========================================================
+           PEQUEÑOS PETALOS
+        ========================================================= */
+
+                .final-floating-petal {
+                    position: absolute;
+                    width: 9px;
+                    height: 16px;
+                    border-radius: 70% 30% 70% 30%;
+                    background: #f5d35c;
+                    opacity: .3;
+                    pointer-events: none;
+                    animation: finalPetal 12s linear infinite;
+                }
+
+
+                .ffp1 {
+                    left: 10%;
+                    top: -20px;
+                }
+
+                .ffp2 {
+                    left: 35%;
+                    top: -40px;
+                    animation-delay: 3s;
+                }
+
+                .ffp3 {
+                    left: 60%;
+                    top: -20px;
+                    animation-delay: 6s;
+                }
+
+                .ffp4 {
+                    left: 82%;
+                    top: -50px;
+                    animation-delay: 2s;
+                }
+
+
+                @keyframes finalPetal {
+
+                    0% {
+                        transform: translateY(0) rotate(0deg);
+                        opacity: 0;
+                    }
+
+                    15% {
+                        opacity: .35;
+                    }
+
+                    85% {
+                        opacity: .2;
+                    }
+
+                    100% {
+                        transform: translateY(110vh) translateX(90px) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+
+
+                /* =========================================================
+           FRASE FINAL
+        ========================================================= */
+
+                .final-end {
+                    margin-top: 40px;
+                    padding-top: 25px;
+                    border-top: 1px solid rgba(255,255,255,.08);
+                    color: var(--muted);
+                    font-size: .82rem;
+                    letter-spacing: .08em;
+                }
+
+
+                /* =========================================================
+           FOOTER
+        ========================================================= */
+
+                .final-footer {
+                    position: relative;
+                    z-index: 20;
+                    text-align: center;
+                    padding: 30px 20px 60px;
+                    color: var(--muted);
+                    font-size: .75rem;
+                    letter-spacing: .08em;
+                }
+
+
+                /* =========================================================
+           CELULAR
+        ========================================================= */
+
+                @media(max-width:700px) {
+
+                    .final-content {
+                        padding: 135px 15px 70px;
+                    }
+
+
+                        .final-content h2 {
+                            font-size: clamp(2.1rem,10vw,3.5rem);
+                        }
+
+
+                    .final-subtitle {
+                        font-size: .85rem;
+                        margin-bottom: 30px;
+                    }
+
+
+                    .gift-scene {
+                        width: 290px;
+                        height: 290px;
+                    }
+
+
+                    .final-gift {
+                        transform: scale(.88);
+                    }
+
+
+                        .final-gift:hover {
+                            transform: translateY(-5px) scale(.91);
+                        }
+
+
+                    .gift-message {
+                        padding: 32px 20px;
+                        border-radius: 25px;
+                    }
+
+
+                        .gift-message h2 {
+                            font-size: 2.5rem;
+                        }
+
+
+                    .final-message-text p {
+                        font-size: .85rem;
+                        line-height: 1.8;
+                    }
+
+
+                    .final-photo img {
+                        border-radius: 18px;
+                    }
+
+
+                    .final-light {
+                        width: 420px;
+                        height: 420px;
+                    }
+
+
+                    .ring-1 {
+                        width: 245px;
+                        height: 245px;
+                    }
+
+
+                    .ring-2 {
+                        width: 195px;
+                        height: 195px;
+                    }
+
+
+                    /* FLORES */
+
+                    .final-flower-1 {
+                        left: -35px;
+                        bottom: 5px;
+                        transform: rotate(-10deg) scale(.72);
+                    }
+
+
+                    .final-flower-2 {
+                        left: -30px;
+                        bottom: -25px;
+                        transform: rotate(8deg) scale(.55);
+                    }
+
+
+                    .final-flower-3 {
+                        right: -35px;
+                        bottom: 5px;
+                        transform: rotate(10deg) scale(.72);
+                    }
+
+
+                    .final-flower-4 {
+                        right: -30px;
+                        bottom: -25px;
+                        transform: rotate(-8deg) scale(.55);
+                    }
+
+
+                    .particle-1,
+                    .particle-2,
+                    .particle-3,
+                    .particle-4,
+                    .particle-5,
+                    .particle-6 {
+                        opacity: .25;
+                    }
+                }
+
+
+                /* =========================================================
+           CELULARES PEQUEÑOS
+        ========================================================= */
+
+                @media(max-width:400px) {
+
+                    .final-content {
+                        padding-top: 125px;
+                    }
+
+
+                        .final-content h2 {
+                            font-size: 2rem;
+                        }
+
+
+                    .final-subtitle {
+                        font-size: .78rem;
+                    }
+
+
+                    .gift-scene {
+                        width: 260px;
+                        height: 260px;
+                    }
+
+
+                    .final-gift {
+                        transform: scale(.76);
+                    }
+
+
+                        .final-gift:hover {
+                            transform: translateY(-4px) scale(.78);
+                        }
+
+
+                    .final-flower-1,
+                    .final-flower-3 {
+                        transform: scale(.58);
+                    }
+
+
+                    .final-flower-2,
+                    .final-flower-4 {
+                        transform: scale(.45);
+                    }
+                }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVEGACION
+    ====================================================== -->
+
+    <nav class="nav">
+
+        <a class="brand"
+           href="index.html">
+            21 • 09
+        </a>
+
+
+        <div class="navlinks">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="historia.html">
+                Historia
+            </a>
+
+            <a href="galeria.html">
+                Fotos
+            </a>
+
+            <a href="carta.html">
+                Carta
+            </a>
+
+            <a href="universo.html">
+                Universo
+            </a>
+
+            <a href="recuerdos.html">
+                Recuerdos
+            </a>
+
+            <a href="primavera.html">
+                Primavera
+            </a>
+
+            <a class="active"
+               href="final.html">
+                Regalo
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         PAGINA FINAL
+    ====================================================== -->
+
+    <section class="final-page">
+
+
+        <!-- LUZ -->
+
+        <div class="final-light"></div>
+
+
+
+        <!-- PARTICULAS -->
+
+        <span class="final-particle particle-1"></span>
+        <span class="final-particle particle-2"></span>
+        <span class="final-particle particle-3"></span>
+        <span class="final-particle particle-4"></span>
+        <span class="final-particle particle-5"></span>
+        <span class="final-particle particle-6"></span>
+
+
+
+        <!-- PETALOS -->
+
+        <span class="final-floating-petal ffp1"></span>
+        <span class="final-floating-petal ffp2"></span>
+        <span class="final-floating-petal ffp3"></span>
+        <span class="final-floating-petal ffp4"></span>
+
+
+
+        <!-- =================================================
+             FLORES
+        ================================================== -->
+
+
+        <div class="final-flower final-flower-1">
+
+            <div class="final-flower-head">
+
+                <span class="final-petal fp01"></span>
+                <span class="final-petal fp02"></span>
+                <span class="final-petal fp03"></span>
+                <span class="final-petal fp04"></span>
+                <span class="final-petal fp05"></span>
+                <span class="final-petal fp06"></span>
+                <span class="final-petal fp07"></span>
+                <span class="final-petal fp08"></span>
+
+                <span class="final-flower-center"></span>
+
+            </div>
+
+            <span class="final-flower-stem"></span>
+
+            <span class="final-leaf left"></span>
+            <span class="final-leaf right"></span>
+
+        </div>
+
+
+
+        <div class="final-flower final-flower-2">
+
+            <div class="final-flower-head">
+
+                <span class="final-petal fp01"></span>
+                <span class="final-petal fp02"></span>
+                <span class="final-petal fp03"></span>
+                <span class="final-petal fp04"></span>
+                <span class="final-petal fp05"></span>
+                <span class="final-petal fp06"></span>
+                <span class="final-petal fp07"></span>
+                <span class="final-petal fp08"></span>
+
+                <span class="final-flower-center"></span>
+
+            </div>
+
+            <span class="final-flower-stem"></span>
+
+            <span class="final-leaf left"></span>
+            <span class="final-leaf right"></span>
+
+        </div>
+
+
+
+        <div class="final-flower final-flower-3">
+
+            <div class="final-flower-head">
+
+                <span class="final-petal fp01"></span>
+                <span class="final-petal fp02"></span>
+                <span class="final-petal fp03"></span>
+                <span class="final-petal fp04"></span>
+                <span class="final-petal fp05"></span>
+                <span class="final-petal fp06"></span>
+                <span class="final-petal fp07"></span>
+                <span class="final-petal fp08"></span>
+
+                <span class="final-flower-center"></span>
+
+            </div>
+
+            <span class="final-flower-stem"></span>
+
+            <span class="final-leaf left"></span>
+            <span class="final-leaf right"></span>
+
+        </div>
+
+
+
+        <div class="final-flower final-flower-4">
+
+            <div class="final-flower-head">
+
+                <span class="final-petal fp01"></span>
+                <span class="final-petal fp02"></span>
+                <span class="final-petal fp03"></span>
+                <span class="final-petal fp04"></span>
+                <span class="final-petal fp05"></span>
+                <span class="final-petal fp06"></span>
+                <span class="final-petal fp07"></span>
+                <span class="final-petal fp08"></span>
+
+                <span class="final-flower-center"></span>
+
+            </div>
+
+            <span class="final-flower-stem"></span>
+
+            <span class="final-leaf left"></span>
+            <span class="final-leaf right"></span>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CONTENIDO
+        ================================================== -->
+
+        <div class="final-content">
+
+
+            <div class="final-label">
+
+                Último capítulo
+
+            </div>
+
+
+            <h2>
+
+                Hay un último<br>
+                detalle...
+
+            </h2>
+
+
+            <p class="final-subtitle">
+
+                Tocá la caja, mi niña.
+
+            </p>
+
+
+
+            <!-- =================================================
+                 CAJA
+            ================================================== -->
+
+            <div class="gift-scene">
+
+
+                <div class="gift-aura"></div>
+
+                <div class="gift-ring ring-1"></div>
+
+                <div class="gift-ring ring-2"></div>
+
+
+                <div class="final-gift gift">
+
+
+                    <!-- CUERPO -->
+
+                    <div class="final-gift-box">
+
+                        <div class="final-ribbon-v"></div>
+
+                        <div class="final-ribbon-h"></div>
+
+                        <div class="gift-shine"></div>
+
+                    </div>
+
+
+                    <!-- TAPA -->
+
+                    <div class="final-gift-lid"></div>
+
+
+                    <!-- MOÑO -->
+
+                    <div class="final-bow">
+
+                        <span class="final-bow-left"></span>
+
+                        <span class="final-bow-right"></span>
+
+                        <span class="final-bow-center"></span>
+
+                    </div>
+
+
+                    <!-- CORAZON -->
+
+                    <div class="gift-heart">
+
+                        ♥
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MENSAJE
+            ================================================== -->
+
+            <div class="gift-message">
+
+
+                <div class="final-heart">
+
+                    ♥
+
+                </div>
+
+
+                <div class="final-message-text">
+
+
+                    <p>
+
+                        Mi niña, nuestro futuro es incierto.
+                        Nadie sabe lo que pasará.
+
+                    </p>
+
+
+                    <p>
+
+                        Esto no es un adiós para siempre,
+                        solo es un hasta luego, mi niña,
+                        mi amoshita.
+
+                    </p>
+
+
+                    <p>
+
+                        Gracias por haber formado parte de
+                        tantos momentos que voy a guardar
+                        siempre con muchísimo cariño.
+
+                    </p>
+
+
+                    <div class="final-signature">
+
+                        Mau • 21/09
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- FOTO -->
+
+                <div class="final-photo">
+
+                    <img src="images/final.jpg"
+                         alt="Foto final">
+
+                </div>
+
+
+                <div class="final-end">
+
+                    Algunas historias no necesitan un final
+                    para haber sido importantes.
+
+                    ✦
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="final-footer">
+
+        Fin de la experiencia ✦
+
+    </footer>
+
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

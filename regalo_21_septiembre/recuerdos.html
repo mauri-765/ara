@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1">
+
+    <title>Recuerdos</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+
+    <style>
+
+                /* =====================================================
+           DECORACION — RECUERDOS
+        ===================================================== */
+
+                .recuerdos-section {
+                    position: relative;
+                    overflow: hidden;
+                }
+
+
+                /* =====================================================
+           FLORES DECORATIVAS
+        ===================================================== */
+
+                .memory-flower {
+                    position: absolute;
+                    width: 62px;
+                    height: 85px;
+                    pointer-events: none;
+                    z-index: 1;
+                }
+
+
+                /* CABEZA */
+
+                .memory-flower-head {
+                    position: absolute;
+                    width: 46px;
+                    height: 46px;
+                    left: 8px;
+                    top: 0;
+                }
+
+
+                /* PETALOS */
+
+                .memory-petal {
+                    position: absolute;
+                    width: 17px;
+                    height: 27px;
+                    left: 14px;
+                    top: 10px;
+                    border-radius: 50% 50% 45% 45%;
+                    background: radial-gradient( circle at 50% 75%, #fff3a3, #f5d35c 62%, #e4b637 );
+                    transform-origin: 8.5px 13.5px;
+                    box-shadow: 0 0 7px rgba(245,211,92,.22);
+                }
+
+
+                /* 8 PETALOS */
+
+                .mp1 {
+                    transform: rotate(0deg) translateY(-12px);
+                }
+
+                .mp2 {
+                    transform: rotate(45deg) translateY(-12px);
+                }
+
+                .mp3 {
+                    transform: rotate(90deg) translateY(-12px);
+                }
+
+                .mp4 {
+                    transform: rotate(135deg) translateY(-12px);
+                }
+
+                .mp5 {
+                    transform: rotate(180deg) translateY(-12px);
+                }
+
+                .mp6 {
+                    transform: rotate(225deg) translateY(-12px);
+                }
+
+                .mp7 {
+                    transform: rotate(270deg) translateY(-12px);
+                }
+
+                .mp8 {
+                    transform: rotate(315deg) translateY(-12px);
+                }
+
+
+                /* CENTRO */
+
+                .memory-center {
+                    position: absolute;
+                    width: 17px;
+                    height: 17px;
+                    left: 14.5px;
+                    top: 14.5px;
+                    border-radius: 50%;
+                    background: radial-gradient( circle at 35% 30%, #d99b20, #70450b );
+                    z-index: 5;
+                    box-shadow: inset 0 0 5px rgba(0,0,0,.4), 0 0 8px rgba(245,211,92,.22);
+                }
+
+
+                /* TALLO */
+
+                .memory-stem {
+                    position: absolute;
+                    width: 3px;
+                    height: 45px;
+                    left: 31px;
+                    top: 34px;
+                    border-radius: 10px;
+                    background: linear-gradient( to bottom, #789b50, #4b6c3a );
+                    transform: rotate(7deg);
+                }
+
+
+                /* HOJAS */
+
+                .memory-leaf {
+                    position: absolute;
+                    width: 22px;
+                    height: 10px;
+                    border-radius: 100% 0 100% 0;
+                    background: linear-gradient( 135deg, #8da85b, #4e713c );
+                }
+
+                    .memory-leaf.left {
+                        left: 10px;
+                        top: 58px;
+                        transform: rotate(-28deg);
+                    }
+
+                    .memory-leaf.right {
+                        left: 32px;
+                        top: 68px;
+                        transform: rotate(28deg) scaleX(-1);
+                    }
+
+
+                /* =====================================================
+           POSICIONES
+        ===================================================== */
+
+                /* Flor superior izquierda */
+
+                .memory-flower-1 {
+                    top: 125px;
+                    left: 2%;
+                    transform: rotate(-15deg) scale(.85);
+                    animation: memoryFloat 5s ease-in-out infinite;
+                }
+
+
+                /* Flor superior derecha */
+
+                .memory-flower-2 {
+                    top: 135px;
+                    right: 2%;
+                    transform: rotate(14deg) scale(.85);
+                    animation: memoryFloat 5.5s ease-in-out infinite;
+                }
+
+
+                /* Flor izquierda central */
+
+                .memory-flower-3 {
+                    top: 48%;
+                    left: -1%;
+                    transform: rotate(-20deg) scale(.7);
+                    animation: memoryFloat 6s ease-in-out infinite;
+                }
+
+
+                /* Flor derecha central */
+
+                .memory-flower-4 {
+                    top: 50%;
+                    right: -1%;
+                    transform: rotate(18deg) scale(.7);
+                    animation: memoryFloat 5.8s ease-in-out infinite;
+                }
+
+
+                /* Flor inferior izquierda */
+
+                .memory-flower-5 {
+                    bottom: 80px;
+                    left: 8%;
+                    transform: rotate(-18deg) scale(.65);
+                    animation: memoryFloat 6.5s ease-in-out infinite;
+                }
+
+
+                /* Flor inferior derecha */
+
+                .memory-flower-6 {
+                    bottom: 80px;
+                    right: 8%;
+                    transform: rotate(18deg) scale(.65);
+                    animation: memoryFloat 5.7s ease-in-out infinite;
+                }
+
+
+                /* =====================================================
+           ANIMACION MUY SUAVE
+        ===================================================== */
+
+                @keyframes memoryFloat {
+
+                    0%,100% {
+                        margin-top: 0;
+                    }
+
+                    50% {
+                        margin-top: -5px;
+                    }
+                }
+
+
+                /* =====================================================
+           DECORACION DE TARJETAS
+        ===================================================== */
+
+                .memory-card {
+                    position: relative;
+                    overflow: hidden;
+                }
+
+
+                    /* Brillo decorativo */
+
+                    .memory-card::before {
+                        content: "";
+                        position: absolute;
+                        width: 100px;
+                        height: 100px;
+                        top: -50px;
+                        right: -50px;
+                        border-radius: 50%;
+                        background: radial-gradient( circle, rgba(245,211,92,.12), transparent 70% );
+                        pointer-events: none;
+                    }
+
+
+                    /* Pequeña línea dorada */
+
+                    .memory-card::after {
+                        content: "";
+                        position: absolute;
+                        width: 35px;
+                        height: 2px;
+                        left: 24px;
+                        bottom: 16px;
+                        background: linear-gradient( 90deg, rgba(245,211,92,.7), transparent );
+                        opacity: .5;
+                    }
+
+
+                /* =====================================================
+           TITULO
+        ===================================================== */
+
+                .memory-title {
+                    position: relative;
+                    z-index: 5;
+                }
+
+
+                /* =====================================================
+           DETALLES FLOTANTES
+        ===================================================== */
+
+                .memory-dot {
+                    position: absolute;
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background: #f5d35c;
+                    opacity: .45;
+                    box-shadow: 0 0 10px rgba(245,211,92,.5);
+                    pointer-events: none;
+                }
+
+                .dot-1 {
+                    top: 22%;
+                    left: 18%;
+                }
+
+                .dot-2 {
+                    top: 35%;
+                    right: 16%;
+                }
+
+                .dot-3 {
+                    top: 68%;
+                    left: 20%;
+                }
+
+                .dot-4 {
+                    top: 78%;
+                    right: 22%;
+                }
+
+                .dot-5 {
+                    top: 15%;
+                    right: 30%;
+                }
+
+
+                /* =====================================================
+           CELULAR
+        ===================================================== */
+
+                @media(max-width:700px) {
+
+                    .memory-flower-1 {
+                        top: 120px;
+                        left: -8%;
+                        transform: scale(.65) rotate(-15deg);
+                    }
+
+                    .memory-flower-2 {
+                        top: 130px;
+                        right: -8%;
+                        transform: scale(.65) rotate(14deg);
+                    }
+
+                    .memory-flower-3 {
+                        top: 45%;
+                        left: -9%;
+                        transform: scale(.55) rotate(-20deg);
+                    }
+
+                    .memory-flower-4 {
+                        top: 48%;
+                        right: -9%;
+                        transform: scale(.55) rotate(18deg);
+                    }
+
+                    .memory-flower-5 {
+                        bottom: 65px;
+                        left: -2%;
+                        transform: scale(.5) rotate(-18deg);
+                    }
+
+                    .memory-flower-6 {
+                        bottom: 65px;
+                        right: -2%;
+                        transform: scale(.5) rotate(18deg);
+                    }
+
+                    .memory-card {
+                        z-index: 5;
+                    }
+                }
+
+
+                /* CELULARES MUY PEQUEÑOS */
+
+                @media(max-width:400px) {
+
+                    .memory-flower-1,
+                    .memory-flower-2 {
+                        transform: scale(.52);
+                    }
+
+                    .memory-flower-3,
+                    .memory-flower-4 {
+                        transform: scale(.45);
+                    }
+
+                    .memory-flower-5,
+                    .memory-flower-6 {
+                        transform: scale(.42);
+                    }
+                }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVEGACION
+    ===================================================== -->
+
+    <nav class="nav">
+
+        <a class="brand"
+           href="index.html">
+            21 • 09
+        </a>
+
+
+        <div class="navlinks">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="historia.html">
+                Historia
+            </a>
+
+            <a href="galeria.html">
+                Fotos
+            </a>
+
+            <a href="carta.html">
+                Carta
+            </a>
+
+            <a href="universo.html">
+                Universo
+            </a>
+
+            <a class="active"
+               href="recuerdos.html">
+                Recuerdos
+            </a>
+
+            <a href="primavera.html">
+                Primavera
+            </a>
+
+            <a href="final.html">
+                Regalo
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         SECCION RECUERDOS
+    ===================================================== -->
+
+    <section class="recuerdos-section">
+
+        <div class="container">
+
+
+            <!-- =================================================
+                 FLORES DECORATIVAS
+            ================================================== -->
+            <!-- FLOR 1 -->
+
+            <div class="memory-flower memory-flower-1">
+
+                <div class="memory-flower-head">
+
+                    <span class="memory-petal mp1"></span>
+                    <span class="memory-petal mp2"></span>
+                    <span class="memory-petal mp3"></span>
+                    <span class="memory-petal mp4"></span>
+                    <span class="memory-petal mp5"></span>
+                    <span class="memory-petal mp6"></span>
+                    <span class="memory-petal mp7"></span>
+                    <span class="memory-petal mp8"></span>
+
+                    <span class="memory-center"></span>
+
+                </div>
+
+                <span class="memory-stem"></span>
+
+                <span class="memory-leaf left"></span>
+                <span class="memory-leaf right"></span>
+
+            </div>
+
+
+
+            <!-- FLOR 2 -->
+
+            <div class="memory-flower memory-flower-2">
+
+                <div class="memory-flower-head">
+
+                    <span class="memory-petal mp1"></span>
+                    <span class="memory-petal mp2"></span>
+                    <span class="memory-petal mp3"></span>
+                    <span class="memory-petal mp4"></span>
+                    <span class="memory-petal mp5"></span>
+                    <span class="memory-petal mp6"></span>
+                    <span class="memory-petal mp7"></span>
+                    <span class="memory-petal mp8"></span>
+
+                    <span class="memory-center"></span>
+
+                </div>
+
+                <span class="memory-stem"></span>
+
+                <span class="memory-leaf left"></span>
+                <span class="memory-leaf right"></span>
+
+            </div>
+
+
+
+            <!-- FLOR 3 -->
+
+            <div class="memory-flower memory-flower-3">
+
+                <div class="memory-flower-head">
+
+                    <span class="memory-petal mp1"></span>
+                    <span class="memory-petal mp2"></span>
+                    <span class="memory-petal mp3"></span>
+                    <span class="memory-petal mp4"></span>
+                    <span class="memory-petal mp5"></span>
+                    <span class="memory-petal mp6"></span>
+                    <span class="memory-petal mp7"></span>
+                    <span class="memory-petal mp8"></span>
+
+                    <span class="memory-center"></span>
+
+                </div>
+
+                <span class="memory-stem"></span>
+
+                <span class="memory-leaf left"></span>
+                <span class="memory-leaf right"></span>
+
+            </div>
+
+
+
+            <!-- FLOR 4 -->
+
+            <div class="memory-flower memory-flower-4">
+
+                <div class="memory-flower-head">
+
+                    <span class="memory-petal mp1"></span>
+                    <span class="memory-petal mp2"></span>
+                    <span class="memory-petal mp3"></span>
+                    <span class="memory-petal mp4"></span>
+                    <span class="memory-petal mp5"></span>
+                    <span class="memory-petal mp6"></span>
+                    <span class="memory-petal mp7"></span>
+                    <span class="memory-petal mp8"></span>
+
+                    <span class="memory-center"></span>
+
+                </div>
+
+                <span class="memory-stem"></span>
+
+                <span class="memory-leaf left"></span>
+                <span class="memory-leaf right"></span>
+
+            </div>
+
+
+
+            <!-- FLOR 5 -->
+
+            <div class="memory-flower memory-flower-5">
+
+                <div class="memory-flower-head">
+
+                    <span class="memory-petal mp1"></span>
+                    <span class="memory-petal mp2"></span>
+                    <span class="memory-petal mp3"></span>
+                    <span class="memory-petal mp4"></span>
+                    <span class="memory-petal mp5"></span>
+                    <span class="memory-petal mp6"></span>
+                    <span class="memory-petal mp7"></span>
+                    <span class="memory-petal mp8"></span>
+
+                    <span class="memory-center"></span>
+
+                </div>
+
+                <span class="memory-stem"></span>
+
+                <span class="memory-leaf left"></span>
+                <span class="memory-leaf right"></span>
+
+            </div>
+
+
+
+            <!-- FLOR 6 -->
+
+            <div class="memory-flower memory-flower-6">
+
+                <div class="memory-flower-head">
+
+                    <span class="memory-petal mp1"></span>
+                    <span class="memory-petal mp2"></span>
+                    <span class="memory-petal mp3"></span>
+                    <span class="memory-petal mp4"></span>
+                    <span class="memory-petal mp5"></span>
+                    <span class="memory-petal mp6"></span>
+                    <span class="memory-petal mp7"></span>
+                    <span class="memory-petal mp8"></span>
+
+                    <span class="memory-center"></span>
+
+                </div>
+
+                <span class="memory-stem"></span>
+
+                <span class="memory-leaf left"></span>
+                <span class="memory-leaf right"></span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PEQUEÑOS DESTELLOS
+            ================================================== -->
+
+            <span class="memory-dot dot-1"></span>
+            <span class="memory-dot dot-2"></span>
+            <span class="memory-dot dot-3"></span>
+            <span class="memory-dot dot-4"></span>
+            <span class="memory-dot dot-5"></span>
+
+
+
+            <!-- =================================================
+                 TITULO
+            ================================================== -->
+
+            <div class="center reveal memory-title">
+
+                <div class="eyebrow">
+                    Capítulo V
+                </div>
+
+                <h2>
+                    Pequeñas cosas
+                </h2>
+
+                <p>
+                    Tarjetas para guardar frases y recuerdos.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TARJETAS
+            ================================================= -->
+
+            <div class="grid">
+
+
+                <div class="card reveal memory-card">
+
+                    <h3>
+                        ♡ Una frase
+                    </h3>
+
+                    <p>
+                        Puedes confiar en mi , mi amor
+                    </p>
+
+                </div>
+
+
+
+                <div class="card reveal memory-card">
+
+                    <h3>
+                        ✦ Un lugar
+                    </h3>
+
+                    <p>
+                        El gym de box , donde nos conocimos
+                    </p>
+
+                </div>
+
+
+
+                <div class="card reveal memory-card">
+
+                    <h3>
+                        ☾ Un día
+                    </h3>
+
+                    <p>
+                        12 de mayo, siempre lo cuidare con mi cora
+                    </p>
+
+                </div>
+
+
+
+                <div class="card reveal memory-card">
+
+                    <h3>
+                        🌸 Una sonrisa
+                    </h3>
+
+                    <p>
+                        ver nuestra foto juntos
+                    </p>
+
+                </div>
+
+
+
+                <div class="card reveal memory-card">
+
+                    <h3>
+                        ∞ Un deseo
+                    </h3>
+
+                    <p>
+                        Que seas feliz siempre conmigo o sin mi
+                    </p>
+
+                </div>
+
+
+
+                <div class="card reveal memory-card">
+
+                    <h3>
+                        ♥ Gracias
+                    </h3>
+
+                    <p>
+                        Por dejarme estar en tu vida
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <a class="btn"
+           href="primavera.html">
+            Llegamos a primavera →
+        </a>
+
+    </footer>
+
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

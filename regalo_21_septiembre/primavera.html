@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1">
+
+    <title>21 de septiembre</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+
+    <style>
+
+                /* =====================================================
+           PRIMAVERA
+        ===================================================== */
+
+                .spring-page {
+                    position: relative;
+                    min-height: 100svh;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: radial-gradient( circle at 50% 45%, rgba(245,211,92,.10), transparent 30% );
+                }
+
+
+                    /* =====================================================
+           RESPLANDOR CENTRAL
+        ===================================================== */
+
+                    .spring-page::before {
+                        content: "";
+                        position: absolute;
+                        width: 600px;
+                        height: 600px;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
+                        border-radius: 50%;
+                        background: radial-gradient( circle, rgba(245,211,92,.13), rgba(216,167,200,.06) 35%, transparent 70% );
+                        filter: blur(8px);
+                        pointer-events: none;
+                        animation: springGlow 5s ease-in-out infinite;
+                    }
+
+
+                @keyframes springGlow {
+
+                    0%,100% {
+                        transform: translate(-50%,-50%) scale(1);
+                        opacity: .7;
+                    }
+
+                    50% {
+                        transform: translate(-50%,-50%) scale(1.12);
+                        opacity: 1;
+                    }
+                }
+
+
+                /* =====================================================
+           CONTENIDO
+        ===================================================== */
+
+                .spring-content {
+                    position: relative;
+                    z-index: 20;
+                    text-align: center;
+                    width: min(700px,88%);
+                    padding: 80px 20px;
+                }
+
+
+                    .spring-content h1 {
+                        position: relative;
+                        margin: 0;
+                        font-size: clamp(4rem,15vw,9rem);
+                        line-height: .83;
+                        letter-spacing: -.08em;
+                        text-shadow: 0 0 25px rgba(245,211,92,.12);
+                    }
+
+
+                        .spring-content h1::after {
+                            content: "";
+                            position: absolute;
+                            width: 140px;
+                            height: 2px;
+                            bottom: -30px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background: linear-gradient( 90deg, transparent, #f5d35c, transparent );
+                            opacity: .65;
+                        }
+
+
+                    .spring-content p {
+                        max-width: 570px;
+                        margin: 55px auto 30px;
+                        font-size: 1rem;
+                        line-height: 1.9;
+                    }
+
+
+                /* =====================================================
+           FLOR GRANDE
+        ===================================================== */
+
+                .spring-flower {
+                    position: absolute;
+                    width: 180px;
+                    height: 240px;
+                    z-index: 10;
+                    pointer-events: none;
+                }
+
+
+                /* CABEZA */
+
+                .spring-head {
+                    position: absolute;
+                    width: 125px;
+                    height: 125px;
+                    left: 27px;
+                    top: 0;
+                    animation: bloom 2.5s ease-out forwards, flowerSway 6s ease-in-out infinite 2.5s;
+                }
+
+
+                /* PETALOS */
+
+                .spring-petal {
+                    position: absolute;
+                    width: 45px;
+                    height: 68px;
+                    left: 40px;
+                    top: 28px;
+                    border-radius: 55% 55% 48% 48%;
+                    background: radial-gradient( circle at 50% 75%, #fff5b0, #f5d35c 58%, #dca72a );
+                    transform-origin: 22px 34px;
+                    box-shadow: 0 0 15px rgba(245,211,92,.25);
+                }
+
+
+                /* 10 PETALOS */
+
+                .sp1 {
+                    transform: rotate(0deg) translateY(-37px);
+                }
+
+                .sp2 {
+                    transform: rotate(36deg) translateY(-37px);
+                }
+
+                .sp3 {
+                    transform: rotate(72deg) translateY(-37px);
+                }
+
+                .sp4 {
+                    transform: rotate(108deg) translateY(-37px);
+                }
+
+                .sp5 {
+                    transform: rotate(144deg) translateY(-37px);
+                }
+
+                .sp6 {
+                    transform: rotate(180deg) translateY(-37px);
+                }
+
+                .sp7 {
+                    transform: rotate(216deg) translateY(-37px);
+                }
+
+                .sp8 {
+                    transform: rotate(252deg) translateY(-37px);
+                }
+
+                .sp9 {
+                    transform: rotate(288deg) translateY(-37px);
+                }
+
+                .sp10 {
+                    transform: rotate(324deg) translateY(-37px);
+                }
+
+
+                /* CENTRO */
+
+                .spring-center {
+                    position: absolute;
+                    width: 48px;
+                    height: 48px;
+                    left: 38.5px;
+                    top: 38.5px;
+                    border-radius: 50%;
+                    background: radial-gradient( circle at 32% 28%, #e0a82b, #80520d 70% );
+                    z-index: 20;
+                    box-shadow: inset 0 0 10px rgba(0,0,0,.45), 0 0 15px rgba(245,211,92,.45);
+                }
+
+
+                /* =====================================================
+           TALLO
+        ===================================================== */
+
+                .spring-stem {
+                    position: absolute;
+                    width: 7px;
+                    height: 130px;
+                    left: 87px;
+                    top: 95px;
+                    border-radius: 20px;
+                    background: linear-gradient( to right, #466737, #86a65b, #466737 );
+                    transform: rotate(4deg);
+                }
+
+
+                /* =====================================================
+           HOJAS
+        ===================================================== */
+
+                .spring-leaf {
+                    position: absolute;
+                    width: 60px;
+                    height: 27px;
+                    border-radius: 100% 0 100% 0;
+                    background: linear-gradient( 135deg, #9bb86a, #496c3b );
+                }
+
+
+                    .spring-leaf.left {
+                        left: 30px;
+                        top: 150px;
+                        transform: rotate(-28deg);
+                    }
+
+
+                    .spring-leaf.right {
+                        left: 93px;
+                        top: 175px;
+                        transform: rotate(25deg) scaleX(-1);
+                    }
+
+
+                /* =====================================================
+           ANIMACIONES FLOR
+        ===================================================== */
+
+                @keyframes bloom {
+
+                    from {
+                        transform: scale(.35);
+                        opacity: 0;
+                    }
+
+                    to {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                }
+
+
+                @keyframes flowerSway {
+
+                    0%,100% {
+                        transform: rotate(-2deg);
+                    }
+
+                    50% {
+                        transform: rotate(3deg) translateY(-6px);
+                    }
+                }
+
+
+                /* =====================================================
+           POSICIONES FLORES
+        ===================================================== */
+
+
+                /* SUPERIOR IZQUIERDA */
+
+                .spring-flower-1 {
+                    top: -25px;
+                    left: -25px;
+                    transform: rotate(-15deg) scale(.85);
+                }
+
+
+                /* SUPERIOR DERECHA */
+
+                .spring-flower-2 {
+                    top: -20px;
+                    right: -25px;
+                    transform: rotate(15deg) scale(.9);
+                }
+
+
+                /* IZQUIERDA */
+
+                .spring-flower-3 {
+                    top: 38%;
+                    left: -65px;
+                    transform: rotate(-25deg) scale(.7);
+                }
+
+
+                /* DERECHA */
+
+                .spring-flower-4 {
+                    top: 38%;
+                    right: -65px;
+                    transform: rotate(25deg) scale(.7);
+                }
+
+
+                /* INFERIOR IZQUIERDA */
+
+                .spring-flower-5 {
+                    bottom: -60px;
+                    left: 8%;
+                    transform: rotate(-20deg) scale(.75);
+                }
+
+
+                /* INFERIOR DERECHA */
+
+                .spring-flower-6 {
+                    bottom: -60px;
+                    right: 8%;
+                    transform: rotate(20deg) scale(.75);
+                }
+
+
+                /* =====================================================
+           PETALOS FLOTANTES
+        ===================================================== */
+
+                .floating-petal {
+                    position: absolute;
+                    width: 12px;
+                    height: 20px;
+                    border-radius: 70% 30% 70% 30%;
+                    background: #f5d35c;
+                    opacity: .45;
+                    pointer-events: none;
+                    animation: petalFall linear infinite;
+                }
+
+
+                .fp1 {
+                    left: 15%;
+                    top: -30px;
+                    animation-duration: 9s;
+                }
+
+                .fp2 {
+                    left: 31%;
+                    top: -40px;
+                    animation-duration: 12s;
+                    animation-delay: 2s;
+                }
+
+                .fp3 {
+                    left: 52%;
+                    top: -20px;
+                    animation-duration: 10s;
+                    animation-delay: 4s;
+                }
+
+                .fp4 {
+                    left: 70%;
+                    top: -50px;
+                    animation-duration: 13s;
+                    animation-delay: 1s;
+                }
+
+                .fp5 {
+                    left: 84%;
+                    top: -30px;
+                    animation-duration: 11s;
+                    animation-delay: 5s;
+                }
+
+                .fp6 {
+                    left: 43%;
+                    top: -70px;
+                    animation-duration: 14s;
+                    animation-delay: 3s;
+                }
+
+
+                @keyframes petalFall {
+
+                    0% {
+                        transform: translateY(0) rotate(0deg);
+                        opacity: 0;
+                    }
+
+                    10% {
+                        opacity: .45;
+                    }
+
+                    90% {
+                        opacity: .3;
+                    }
+
+                    100% {
+                        transform: translateY(110vh) translateX(80px) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+
+
+                /* =====================================================
+           PEQUEÑOS DESTELLOS
+        ===================================================== */
+
+                .spring-star {
+                    position: absolute;
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background: #f5d35c;
+                    box-shadow: 0 0 12px #f5d35c;
+                    animation: twinkle 3s ease-in-out infinite;
+                    pointer-events: none;
+                }
+
+
+                .ss1 {
+                    top: 22%;
+                    left: 24%;
+                }
+
+                .ss2 {
+                    top: 30%;
+                    right: 22%;
+                    animation-delay: 1s;
+                }
+
+                .ss3 {
+                    bottom: 28%;
+                    left: 27%;
+                    animation-delay: 2s;
+                }
+
+                .ss4 {
+                    bottom: 23%;
+                    right: 28%;
+                    animation-delay: .5s;
+                }
+
+
+                @keyframes twinkle {
+
+                    0%,100% {
+                        opacity: .2;
+                        transform: scale(.7);
+                    }
+
+                    50% {
+                        opacity: 1;
+                        transform: scale(1.5);
+                    }
+                }
+
+
+                /* =====================================================
+           BOTON
+        ===================================================== */
+
+                .spring-button {
+                    position: relative;
+                    z-index: 30;
+                    margin-top: 10px;
+                }
+
+
+                /* =====================================================
+           FOOTER
+        ===================================================== */
+
+                .spring-footer {
+                    position: absolute;
+                    bottom: 25px;
+                    left: 0;
+                    right: 0;
+                    z-index: 30;
+                    text-align: center;
+                    font-size: .8rem;
+                    letter-spacing: .08em;
+                    opacity: .7;
+                }
+
+
+                /* =====================================================
+           CELULAR
+        ===================================================== */
+
+                @media(max-width:700px) {
+
+                    .spring-content {
+                        padding: 120px 15px 90px;
+                    }
+
+
+                        .spring-content h1 {
+                            font-size: clamp(3.8rem,18vw,6rem);
+                        }
+
+
+                        .spring-content p {
+                            font-size: .85rem;
+                            line-height: 1.7;
+                            margin-top: 48px;
+                        }
+
+
+                    /* FLORES */
+
+                    .spring-flower {
+                        transform: scale(.55);
+                    }
+
+
+                    .spring-flower-1 {
+                        top: -45px;
+                        left: -65px;
+                        transform: rotate(-15deg) scale(.55);
+                    }
+
+
+                    .spring-flower-2 {
+                        top: -40px;
+                        right: -65px;
+                        transform: rotate(15deg) scale(.55);
+                    }
+
+
+                    .spring-flower-3 {
+                        top: 42%;
+                        left: -105px;
+                        transform: rotate(-25deg) scale(.5);
+                    }
+
+
+                    .spring-flower-4 {
+                        top: 42%;
+                        right: -105px;
+                        transform: rotate(25deg) scale(.5);
+                    }
+
+
+                    .spring-flower-5 {
+                        bottom: -75px;
+                        left: -30px;
+                        transform: rotate(-20deg) scale(.5);
+                    }
+
+
+                    .spring-flower-6 {
+                        bottom: -75px;
+                        right: -30px;
+                        transform: rotate(20deg) scale(.5);
+                    }
+
+
+                    /* DESTELLOS */
+
+                    .spring-star {
+                        display: none;
+                    }
+
+
+                    /* RESPLANDOR */
+
+                    .spring-page::before {
+                        width: 400px;
+                        height: 400px;
+                    }
+                }
+
+
+                /* =====================================================
+           CELULARES PEQUEÑOS
+        ===================================================== */
+
+                @media(max-width:400px) {
+
+                    .spring-content {
+                        padding-top: 130px;
+                    }
+
+
+                        .spring-content h1 {
+                            font-size: 3.7rem;
+                        }
+
+
+                        .spring-content p {
+                            font-size: .78rem;
+                        }
+
+
+                    .spring-flower-1,
+                    .spring-flower-2 {
+                        transform: scale(.43);
+                    }
+
+
+                    .spring-flower-3,
+                    .spring-flower-4 {
+                        transform: scale(.4);
+                    }
+
+
+                    .spring-flower-5,
+                    .spring-flower-6 {
+                        transform: scale(.4);
+                    }
+                }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAV
+    ===================================================== -->
+
+    <nav class="nav">
+
+        <a class="brand"
+           href="index.html">
+            21 • 09
+        </a>
+
+
+        <div class="navlinks">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="historia.html">
+                Historia
+            </a>
+
+            <a href="galeria.html">
+                Fotos
+            </a>
+
+            <a href="carta.html">
+                Carta
+            </a>
+
+            <a href="universo.html">
+                Universo
+            </a>
+
+            <a href="recuerdos.html">
+                Recuerdos
+            </a>
+
+            <a class="active"
+               href="primavera.html">
+                Primavera
+            </a>
+
+            <a href="final.html">
+                Regalo
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         PRIMAVERA
+    ===================================================== -->
+
+    <section class="hero spring-page">
+
+
+        <!-- =================================================
+             FLORES
+        ================================================== -->
+        <!-- FLOR 1 -->
+
+        <div class="spring-flower spring-flower-1">
+
+            <div class="spring-head">
+
+                <span class="spring-petal sp1"></span>
+                <span class="spring-petal sp2"></span>
+                <span class="spring-petal sp3"></span>
+                <span class="spring-petal sp4"></span>
+                <span class="spring-petal sp5"></span>
+                <span class="spring-petal sp6"></span>
+                <span class="spring-petal sp7"></span>
+                <span class="spring-petal sp8"></span>
+                <span class="spring-petal sp9"></span>
+                <span class="spring-petal sp10"></span>
+
+                <span class="spring-center"></span>
+
+            </div>
+
+            <span class="spring-stem"></span>
+
+            <span class="spring-leaf left"></span>
+            <span class="spring-leaf right"></span>
+
+        </div>
+
+
+
+        <!-- FLOR 2 -->
+
+        <div class="spring-flower spring-flower-2">
+
+            <div class="spring-head">
+
+                <span class="spring-petal sp1"></span>
+                <span class="spring-petal sp2"></span>
+                <span class="spring-petal sp3"></span>
+                <span class="spring-petal sp4"></span>
+                <span class="spring-petal sp5"></span>
+                <span class="spring-petal sp6"></span>
+                <span class="spring-petal sp7"></span>
+                <span class="spring-petal sp8"></span>
+                <span class="spring-petal sp9"></span>
+                <span class="spring-petal sp10"></span>
+
+                <span class="spring-center"></span>
+
+            </div>
+
+            <span class="spring-stem"></span>
+
+            <span class="spring-leaf left"></span>
+            <span class="spring-leaf right"></span>
+
+        </div>
+
+
+
+        <!-- FLOR 3 -->
+
+        <div class="spring-flower spring-flower-3">
+
+            <div class="spring-head">
+
+                <span class="spring-petal sp1"></span>
+                <span class="spring-petal sp2"></span>
+                <span class="spring-petal sp3"></span>
+                <span class="spring-petal sp4"></span>
+                <span class="spring-petal sp5"></span>
+                <span class="spring-petal sp6"></span>
+                <span class="spring-petal sp7"></span>
+                <span class="spring-petal sp8"></span>
+                <span class="spring-petal sp9"></span>
+                <span class="spring-petal sp10"></span>
+
+                <span class="spring-center"></span>
+
+            </div>
+
+            <span class="spring-stem"></span>
+
+            <span class="spring-leaf left"></span>
+            <span class="spring-leaf right"></span>
+
+        </div>
+
+
+
+        <!-- FLOR 4 -->
+
+        <div class="spring-flower spring-flower-4">
+
+            <div class="spring-head">
+
+                <span class="spring-petal sp1"></span>
+                <span class="spring-petal sp2"></span>
+                <span class="spring-petal sp3"></span>
+                <span class="spring-petal sp4"></span>
+                <span class="spring-petal sp5"></span>
+                <span class="spring-petal sp6"></span>
+                <span class="spring-petal sp7"></span>
+                <span class="spring-petal sp8"></span>
+                <span class="spring-petal sp9"></span>
+                <span class="spring-petal sp10"></span>
+
+                <span class="spring-center"></span>
+
+            </div>
+
+            <span class="spring-stem"></span>
+
+            <span class="spring-leaf left"></span>
+            <span class="spring-leaf right"></span>
+
+        </div>
+
+
+
+        <!-- FLOR 5 -->
+
+        <div class="spring-flower spring-flower-5">
+
+            <div class="spring-head">
+
+                <span class="spring-petal sp1"></span>
+                <span class="spring-petal sp2"></span>
+                <span class="spring-petal sp3"></span>
+                <span class="spring-petal sp4"></span>
+                <span class="spring-petal sp5"></span>
+                <span class="spring-petal sp6"></span>
+                <span class="spring-petal sp7"></span>
+                <span class="spring-petal sp8"></span>
+                <span class="spring-petal sp9"></span>
+                <span class="spring-petal sp10"></span>
+
+                <span class="spring-center"></span>
+
+            </div>
+
+            <span class="spring-stem"></span>
+
+            <span class="spring-leaf left"></span>
+            <span class="spring-leaf right"></span>
+
+        </div>
+
+
+
+        <!-- FLOR 6 -->
+
+        <div class="spring-flower spring-flower-6">
+
+            <div class="spring-head">
+
+                <span class="spring-petal sp1"></span>
+                <span class="spring-petal sp2"></span>
+                <span class="spring-petal sp3"></span>
+                <span class="spring-petal sp4"></span>
+                <span class="spring-petal sp5"></span>
+                <span class="spring-petal sp6"></span>
+                <span class="spring-petal sp7"></span>
+                <span class="spring-petal sp8"></span>
+                <span class="spring-petal sp9"></span>
+                <span class="spring-petal sp10"></span>
+
+                <span class="spring-center"></span>
+
+            </div>
+
+            <span class="spring-stem"></span>
+
+            <span class="spring-leaf left"></span>
+            <span class="spring-leaf right"></span>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PETALOS FLOTANTES
+        ================================================== -->
+
+        <span class="floating-petal fp1"></span>
+        <span class="floating-petal fp2"></span>
+        <span class="floating-petal fp3"></span>
+        <span class="floating-petal fp4"></span>
+        <span class="floating-petal fp5"></span>
+        <span class="floating-petal fp6"></span>
+
+
+
+        <!-- =================================================
+             DESTELLOS
+        ================================================== -->
+
+        <span class="spring-star ss1"></span>
+        <span class="spring-star ss2"></span>
+        <span class="spring-star ss3"></span>
+        <span class="spring-star ss4"></span>
+
+
+
+        <!-- =================================================
+             CONTENIDO
+        ================================================== -->
+
+        <div class="spring-content">
+
+
+            <div class="eyebrow">
+                21 de septiembre
+            </div>
+
+
+            <h1>
+                Feliz<br>
+                primavera
+            </h1>
+
+
+            <p>
+                Que esta nueva estación traiga nuevos momentos,
+                nuevas sonrisas y muchos recuerdos.
+            </p>
+
+
+            <a class="btn spring-button"
+               href="final.html">
+                Tengo algo más para vos ✦
+            </a>
+
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <div class="spring-footer">
+
+            Una estación termina; otra comienza.
+
+        </div>
+
+
+    </section>
+
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
